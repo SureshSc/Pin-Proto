@@ -35,7 +35,10 @@ router.get('/result', function(req, res, next) {
 });
 
 router.get('/error', function(req, res, next) {
-    res.send('Failed to give in put');
+    const response = new VoiceResponse();
+    response.say(`Sorry we are not able to get the PIN. Please retry`)
+    res.set('Content-Type', 'text/xml');
+    res.send(response.toString())
 });
   
 router.get('/', function(req, res, next) {
