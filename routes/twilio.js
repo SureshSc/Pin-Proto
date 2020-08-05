@@ -12,9 +12,10 @@ router.post('/enterpin', function(req, res, next) {
         numDigits: 6
     });
     gather.say('Enter your 6 digit pin after the message and enter # after the pin');
+    //for error or timeout
     response.redirect({
         method: 'GET'
-    }, '/twilio/result');
+    }, '/twilio/error');
     
     console.log(response.toString());
     res.set('Content-Type', 'text/xml');
