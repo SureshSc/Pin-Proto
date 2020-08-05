@@ -22,9 +22,10 @@ router.post('/enterpin', function(req, res, next) {
 });
 
 router.get('/complete', function(req, res, next) {
-    console.log(req.params)
+    const enteredDigits = req.params.Digits
+    console.log(enteredDigits)
     const response = new VoiceResponse();
-    response.say("Entered PIN is 111111")
+    response.say(`Entered PIN is ${enteredDigits}`)
     res.set('Content-Type', 'text/xml');
     res.send(response.toString())
 });
@@ -43,3 +44,6 @@ router.get('/', function(req, res, next) {
   
 
 module.exports = router;
+
+
+///twilio/complete?AccountSid=AC783d892f16b3ceed0145d98370e10131&ApiVersion=2010-04-01&CallSid=CA65a1e6aef21760e34e75e4fe73c07716&CallStatus=in-progress&Called=%2B12248033558&CalledCity=&CalledCountry=US&CalledState=IL&CalledVia=%2B49494949494912248033558&CalledZip=&Caller=%2B49221669549907&CallerCity=&CallerCountry=DE&CallerState=K%C3%B6ln&CallerZip=&Digits=123456&Direction=inbound&FinishedOnKey=&ForwardedFrom=%2B49494949494912248033558&From=%2B49221669549907&FromCity=&FromCountry=DE&FromState=K%C3%B6ln&FromZip=&To=%2B12248033558&ToCity=&ToCountry=US&ToState=IL&ToZip=&msg=Gather+End" host=pin-proto.herokuapp.com request_id=d3d57a44-520a-42d0-9acf-3279788aa90a fwd="54.198.119.84" dyno=web.1 connect=1ms service=9ms status=200 bytes=290 protocol=https
