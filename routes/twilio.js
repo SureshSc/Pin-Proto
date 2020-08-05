@@ -7,7 +7,7 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 router.post('/enterpin', function(req, res, next) {
     const response = new VoiceResponse();
     const gather = response.gather({
-        action: '/error',
+        action: '/twilio/complete',
         method: 'GET',
         numDigits: 6
     });
@@ -21,6 +21,13 @@ router.post('/enterpin', function(req, res, next) {
     res.send(response.toString())
 });
 
+router.get('/complete', function(req, res, next) {
+    console.log(req.params)
+    const response = new VoiceResponse();
+    response.say("Entered PIN is 111111")
+    res.set('Content-Type', 'text/xml');
+    res.send(response.toString())
+});
 
 router.get('/result', function(req, res, next) {
     res.send('respond with a resource');
