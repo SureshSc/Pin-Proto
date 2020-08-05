@@ -22,7 +22,7 @@ router.post('/enterpin', function(req, res, next) {
 });
 
 router.get('/complete', function(req, res, next) {
-    const enteredDigits = req.params.Digits
+    const enteredDigits = req.query.Digits
     console.log(enteredDigits)
     const response = new VoiceResponse();
     response.say(`Entered PIN is ${enteredDigits}`)
