@@ -11,7 +11,7 @@ router.post('/enterpin', function(req, res, next) {
         method: 'GET',
         numDigits: 6
     });
-    gather.say('Enter your 6 digit pin after the message');
+    gather.say('Enter your 6 digit pin after the message and enter # after the pin');
     response.redirect({
         method: 'GET'
     }, '/twilio/result');
